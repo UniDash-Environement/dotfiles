@@ -1,14 +1,30 @@
-#!/bin/sh
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p neovim lazygit tmux
 
-if [[ "${1}x" != "x" ]]; then
-  if [[ -d ${1} ]]; then
-    cd ${1}
+FolderIdeCommand() {
+  tmux new-session -d lazygit \
+    \; split-window -h \
+    \; resize-pane -R 75 \
+    \; swap-pane -D \
+    \; split-window -v -d nvim -c "NvimTreeToggle" \
+    \; resize-pane -D 15 \
+    \; swap-pane -D \
+    \; attach
+}
+FileIdeCommand() {
+  tmux new-session -d \
+    \; resize-pane -R 75 \
+    \; swap-pane -D \
+    \; split-window -v -d nvim ${1} \
+    \; resize-pane -D 15 \
+    \; swap-pane -D \
+    \; attach
+}
 
-    tmux new-session -d lazygit \; split-window -h \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim -c "NvimTreeToggle" \; resize-pane -D 15 \; swap-pane -D \; attach
-
-  elif [[ -f ${1} ]]; then
-    tmux new-session -d \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim ${1} \; resize-pane -D 15 \; swap-pane -D \; attach
-  fi
-else
-  tmux new-session -d lazygit \; split-window -h \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim -c "NvimTreeToggle" \; resize-pane -D 15 \; swap-pane -D \; attach
+ideCommand="FolderIdeCommand"
+if [[ "${1}x" != "x" && -f ${1} ]]; then
+  ideCommand="FileIdeCommand ${1}"
 fi
+
+cd ${1} 2> /dev/null
+$ideCommand

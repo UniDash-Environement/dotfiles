@@ -3,12 +3,6 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "termide";
   version = "unstable-2023-07-16";
 
-  buildInputs = with pkgs; [
-    neovim
-    lazygit
-    tmux
-  ];
-
   src = ./src;
 
   installPhase = ''
