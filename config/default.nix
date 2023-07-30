@@ -131,6 +131,7 @@
       bc
       pciutils
       wget
+      (pkgs.callPackage ./ide { })
     ];
   };
 

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [[ "${1}x" != "x" ]]; then
+  if [[ -d ${1} ]]; then
+    cd ${1}
+
+    tmux new-session -d lazygit \; split-window -h \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim -c "NvimTreeToggle" \; resize-pane -D 15 \; swap-pane -D \; attach
+
+  elif [[ -f ${1} ]]; then
+    tmux new-session -d \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim ${1} \; resize-pane -D 15 \; swap-pane -D \; attach
+  fi
+else
+  tmux new-session -d lazygit \; split-window -h \; resize-pane -R 75 \; swap-pane -D \; split-window -v -d nvim -c "NvimTreeToggle" \; resize-pane -D 15 \; swap-pane -D \; attach
+fi
