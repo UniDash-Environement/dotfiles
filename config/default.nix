@@ -3,6 +3,7 @@
 {
   imports = [
     ./issue
+    ./service/default.nix
   ];
 
   nix = {
@@ -33,6 +34,8 @@
       })
     ];
   };
+
+  networking.nat.enable = true;
 
   boot = {
     loader = {

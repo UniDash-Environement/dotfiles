@@ -36,6 +36,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-A"; })
           ./hardware/SRV/A.nix
+          ./config/SRV/A
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/SRV/A;
@@ -48,6 +49,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-A"; })
           ./hardware/NAS/A.nix
+          ./config/NAS/A
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/NAS/A;
@@ -60,6 +62,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-B"; })
           ./hardware/SRV/B.nix
+          ./config/SRV/B
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/SRV/B;
@@ -72,6 +75,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-B"; })
           ./hardware/NAS/B.nix
+          ./config/NAS/B
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/NAS/B;
@@ -84,6 +88,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-C"; })
           ./hardware/SRV/C.nix
+          ./config/SRV/C
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/SRV/C;
@@ -96,6 +101,7 @@
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-C"; })
           ./hardware/NAS/C.nix
+          ./config/NAS/C
 
           home-manager.nixosModules.home-manager {
             home-manager.users.${username} = import ./home/NAS/C;
