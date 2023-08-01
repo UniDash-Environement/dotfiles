@@ -10,6 +10,7 @@
     openssh.enable = true;
     gpm.enable = true;
     upower.enable = true;
+    nginx.enable = true;
   };
 
   systemd.targets = {
@@ -17,5 +18,11 @@
     suspend.enable = false;
     hibernate.enable = false;
     hybrid-sleep.enable = false;
+  };
+
+  security.acme = {
+    acceptTerms = true;
+
+    defaults.email = "pikatsuto@gmail.com";
   };
 }

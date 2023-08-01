@@ -17,10 +17,4 @@
       enable = true;
     };
   };
-
-  security.acme = {
-    acceptTerms = true;
-
-    email = "pikatsuto@gmail.com";
-  };
 }
