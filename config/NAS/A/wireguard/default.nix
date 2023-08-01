@@ -34,31 +34,31 @@
          {
             publicKey = (builtins.readFile ../../../SRV/A/wireguard/key/wan/publickey);
             allowedIPs = ["10.210.255.254/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           } 
           {
             publicKey = (builtins.readFile ../../../SRV/B/wireguard/key/wan/publickey);
             allowedIPs = ["10.210.255.253/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/B/wireguard/key/wan/publickey);
             allowedIPs = ["10.210.254.253/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../SRV/C/wireguard/key/wan/publickey);
             allowedIPs = ["10.210.255.252/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/C/wireguard/key/wan/publickey);
             allowedIPs = ["10.210.254.252/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           }
         ];
@@ -79,31 +79,31 @@
           {
             publicKey = (builtins.readFile ../../../SRV/A/wireguard/key/lan/publickey);
             allowedIPs = ["10.220.255.254/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../SRV/B/wireguard/key/lan/publickey);
             allowedIPs = ["10.220.255.253/32"];
-            endpoint = ":51821";
+            endpoint = "109.122.220.13:51821";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/B/wireguard/key/lan/publickey);
             allowedIPs = ["10.220.254.253/32"];
-            endpoint = ":51821";
+            endpoint = "109.122.220.13:51821";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../SRV/C/wireguard/key/lan/publickey);
             allowedIPs = ["10.220.255.252/32"];
-            endpoint = ":51821";
+            endpoint = "109.122.220.13:51821";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/C/wireguard/key/lan/publickey);
             allowedIPs = ["10.220.254.252/32"];
-            endpoint = ":51821";
+            endpoint = "109.122.220.13:51821";
             persistentKeepalive = 25;
           }
         ];
@@ -124,31 +124,31 @@
          {
             publicKey = (builtins.readFile ../../../SRV/A/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.255.254/32"];
-            endpoint = ":51820";
+            endpoint = "109.122.220.13:51820";
             persistentKeepalive = 25;
           } 
           {
             publicKey = (builtins.readFile ../../../SRV/B/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.255.253/32"];
-            endpoint = ":51822";
+            endpoint = "109.122.220.13:51822";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/B/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.254.253/32"];
-            endpoint = ":51822";
+            endpoint = "109.122.220.13:51822";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../SRV/C/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.255.252/32"];
-            endpoint = ":51822";
+            endpoint = "109.122.220.13:51822";
             persistentKeepalive = 25;
           }
           {
             publicKey = (builtins.readFile ../../../NAS/C/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.254.252/32"];
-            endpoint = ":51822";
+            endpoint = "109.122.220.13:51822";
             persistentKeepalive = 25;
           }
         ];
