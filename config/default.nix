@@ -4,7 +4,7 @@
   imports = [
     ./issue
     ./service/default.nix
-    ./networking.nix
+    (import ./networking.nix { hostname = hostname; }) 
     ./virtualisation
   ];
 
