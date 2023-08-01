@@ -9,7 +9,7 @@
       allowedTCPPorts = [
         80
       ];
-    }
+    };
 
     nat = {
       externalInterface = "eno1";
