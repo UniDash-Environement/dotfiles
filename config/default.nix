@@ -4,6 +4,8 @@
   imports = [
     ./issue
     ./service/default.nix
+    ./networking.nix
+    ./virtualisation
   ];
 
   nix = {
@@ -25,7 +27,7 @@
 
   environment.pathsToLink = [ "/share/nix-direnv" ];
   nixpkgs = {
-    config.allowUnfree = true;
+  config.allowUnfree = true;
     overlays = [
       (self: super: {
         nix-direnv = super.nix-direnv.override {
@@ -33,40 +35,6 @@
         };
       })
     ];
-  };
-
-  networking.nat.enable = true;
-
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        gfxmodeEfi = "1920x1080x32";
-      };
-    };
-
-    initrd.kernelModules = [
-      "vfio_pci"
-      "vfio"
-      "vfio_iommu_type1"
-      "vfio_virqfd"
-      "amdgpu"
-    ];
-
-    kernelParams = [
-      "amd_iommu=on"
-      "intel_iommu=on"
-    ];
-
-    supportedFilesystems = [ "ntfs" ];
-  };
-
-  networking = {
-    hostName = "${hostname}";
-    networkmanager.enable = true;
   };
 
   time.timeZone = "Europe/Paris";
@@ -88,14 +56,6 @@
     fish.enable = true;
   };
   
-  services = {
-    gvfs.enable = true;
-    tumbler.enable = true;
-    openssh.enable = true;
-    gpm.enable = true;
-    upower.enable = true;
-  };
-
   users.users.gabriel = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -110,11 +70,6 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
-  };
 
   environment = {
     shells = with pkgs; [ fish ];
@@ -141,12 +96,5 @@
   system = {
     copySystemConfiguration = false;
     stateVersion = "23.05";
-  };
-
-  systemd.targets = {
-    sleep.enable = false;
-    suspend.enable = false;
-    hibernate.enable = false;
-    hybrid-sleep.enable = false;
   };
 }
