@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -13,30 +13,6 @@
     ./git.nix
     ./profile.nix
   ];
-
-  home = {
-    username = "${username}";
-    homeDirectory = "/home/${username}";
-
-    stateVersion = "23.05";
-    sessionVariables = {
-      EDITOR = "ide";
-    };
-
-    packages = with pkgs; [
-      screen
-      btop
-      neofetch
-      vim
-      neovim
-      nano
-      gcc
-      glib
-      tmuxPlugins.onedark-theme
-      flatpak
-      lazygit
-    ];
-  };
 
   programs = {
     home-manager.enable = true;

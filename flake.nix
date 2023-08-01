@@ -14,7 +14,10 @@
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, hosts, ... } @inputs:
   let
-    username = "gabriel";
+    username = {
+      user1 = "gabriel";
+      user2 = "evnoxay";
+    };
     system = "x86_64-linux";
 
     default_modules = [
@@ -22,8 +25,13 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.users.${username} = import ./home;
-        home-manager.extraSpecialArgs = { inherit username; };
+        home-manager.users = {
+          ${username.user1} = import ./home/users/user1.nix;
+          ${username.user2} = import ./home/users/user2.nix;
+        };
+        home-manager.extraSpecialArgs = {
+          inherit username;
+        };
       }
     ];
 
@@ -39,7 +47,8 @@
           ./config/SRV/A
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/SRV/A;
+            home-manager.users.${username.user1} = import ./home/SRV/A;
+            home-manager.users.${username.user2} = import ./home/SRV/A;
           }
         ];
       };
@@ -52,7 +61,8 @@
           ./config/NAS/A
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/NAS/A;
+            home-manager.users.${username.user1} = import ./home/NAS/A;
+            home-manager.users.${username.user2} = import ./home/NAS/A;
           }
         ];
       };
@@ -65,7 +75,8 @@
           ./config/SRV/B
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/SRV/B;
+            home-manager.users.${username.user1} = import ./home/SRV/B;
+            home-manager.users.${username.user2} = import ./home/SRV/B;
           }
         ];
       };
@@ -78,7 +89,8 @@
           ./config/NAS/B
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/NAS/B;
+            home-manager.users.${username.user1} = import ./home/NAS/B;
+            home-manager.users.${username.user2} = import ./home/NAS/B;
           }
         ];
       };
@@ -91,7 +103,8 @@
           ./config/SRV/C
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/SRV/C;
+            home-manager.users.${username.user1} = import ./home/SRV/C;
+            home-manager.users.${username.user2} = import ./home/SRV/C;
           }
         ];
       };
@@ -104,7 +117,8 @@
           ./config/NAS/C
 
           home-manager.nixosModules.home-manager {
-            home-manager.users.${username} = import ./home/NAS/C;
+            home-manager.users.${username.user1} = import ./home/NAS/C;
+            home-manager.users.${username.user2} = import ./home/NAS/C;
           }
         ];
       };
