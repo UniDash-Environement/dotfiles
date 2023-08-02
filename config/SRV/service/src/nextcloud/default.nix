@@ -22,22 +22,16 @@
     proxyTimeout = "3s";
     upstreams = {
       nextcloud.servers = {
-        "UniDash-SRV-A.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s";
-        };
-        "UniDash-SRV-B.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s";
-        };
-        "UniDash-SRV-C.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s";
-        };
+        "UniDash-SRV-A.nextcloud.local max_fails=3 fail_timeout=300s" = {};
+        "UniDash-SRV-B.nextcloud.local max_fails=3 fail_timeout=300s" = {};
+        "UniDash-SRV-C.nextcloud.local max_fails=3 fail_timeout=300s" = {};
       };
     };
 
     virtualHosts = {
       "${hostname}.nextcloud.local" = {
         enableACME = false;
-        forceSSL = true;
+        forceSSL = false;
 
         locations."/".proxyPass = "http://nextcloud.local/";
       };
