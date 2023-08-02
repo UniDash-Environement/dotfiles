@@ -23,13 +23,13 @@
     upstreams = {
       nextcloud.servers = {
         "UniDash-SRV-A.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s"
+          extraConfig = "max_fails=3 fail_timeout=300s";
         };
         "UniDash-SRV-B.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s"
+          extraConfig = "max_fails=3 fail_timeout=300s";
         };
         "UniDash-SRV-C.nextcloud.local" = {
-          extraConfig = "max_fails=3 fail_timeout=300s"
+          extraConfig = "max_fails=3 fail_timeout=300s";
         };
       };
     };
