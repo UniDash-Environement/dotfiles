@@ -43,6 +43,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-A"; })
+          (import ./config/SRV { hostname = "UniDash-SRV-A"; })
           ./hardware/SRV/A.nix
           ./config/SRV/A
 
@@ -57,6 +58,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-A"; })
+          (import ./config/NAS { hostname = "UniDash-NAS-A"; })
           ./hardware/NAS/A.nix
           ./config/NAS/A
 
@@ -71,6 +73,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-B"; })
+          (import ./config/SRV { hostname = "UniDash-SRV-B"; })
           ./hardware/SRV/B.nix
           ./config/SRV/B
 
@@ -85,6 +88,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-B"; })
+          (import ./config/NAS { hostname = "UniDash-NAS-B"; })
           ./hardware/NAS/B.nix
           ./config/NAS/B
 
@@ -99,6 +103,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-SRV-C"; })
+          (import ./config/SRV { hostname = "UniDash-SRV-C"; })
           ./hardware/SRV/C.nix
           ./config/SRV/C
 
@@ -113,6 +118,7 @@
 
         modules = default_modules ++ [
           (import ./config { hostname = "UniDash-NAS-C"; })
+          (import ./config/NAS { hostname = "UniDash-NAS-C"; })
           ./hardware/NAS/C.nix
           ./config/NAS/C
 
