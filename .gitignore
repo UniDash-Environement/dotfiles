@@ -1,3 +1,4 @@
 **/.env
 **/privateKey
 **/adminpass
+!./config/SRV/service/src/nextcloud/adminpass
