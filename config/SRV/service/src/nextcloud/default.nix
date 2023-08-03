@@ -60,10 +60,13 @@
     localAddress6 = "fc00::2";
     config = { config, pkgs, ... }: {
       services.nextcloud = {                     
-        enable = true;                   
+        enable = true;
         package = pkgs.nextcloud27;
-        hostName = "localhost";
-        config.adminpassFile = "./.env";
+        hostName = "nextcloud.local";
+        config = {
+          adminuser = "Gabriel";
+          adminpassFile = "${pkgs.writeText "adminpass" (builtins.readFile ./adminpass)}";
+        };
       };
 
       system.stateVersion = "23.05";
