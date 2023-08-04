@@ -7,6 +7,7 @@
         "wg-wan"
         "wg-lan"
         "wg-admin"
+        "wg-failover"
       ];
     };
 
@@ -149,6 +150,20 @@
             publicKey = (builtins.readFile ../../../NAS/C/wireguard/key/admin/publickey);
             allowedIPs = ["10.10.254.252/32"];
             endpoint = "109.122.220.13:51822";
+            persistentKeepalive = 25;
+          }
+        ];
+      };
+
+      wg-failover = {
+        ips = ["109.122.220.13/32"]; 
+        privateKeyFile = "/etc/wireguard/failover/privateKey";
+
+        peers = [
+          {
+            publicKey = "ke2LZyYD7ELFggDCcntmWEvBFn+HI4hj7pUNOO2quzo=";
+            allowedIPs = ["172.16.0.0/32"];
+            endpoint = "109.122.220.1:51822";
             persistentKeepalive = 25;
           }
         ];
