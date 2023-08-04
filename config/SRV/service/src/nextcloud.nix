@@ -36,7 +36,7 @@
         locations."/".proxyPass = "http://nextcloud.local/";
       };
 
-      "nextcloud.heurepika.com" = {
+      "nextcloud.unidash.fr" = {
         enableACME = true;
         forceSSL = true;
 
