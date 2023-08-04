@@ -65,7 +65,7 @@
         hostName = "nextcloud.local";
         config = {
           adminuser = "Gabriel";
-          adminpassFile = "${pkgs.writeText "adminpass" (builtins.readFile ./adminpass)}";
+          adminpassFile = "${pkgs.writeText "adminpass" "changeme"}";
         };
       };
 
