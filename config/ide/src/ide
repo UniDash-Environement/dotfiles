@@ -3,7 +3,7 @@
 
 FolderIdeCommand() {
   tmux new-session -d lazygit \
-    \; split-window -h \
+    \; split-window -h $(grep "^$USER" /etc/passwd | cut -d ":" -f 7) \
     \; resize-pane -R 75 \
     \; swap-pane -D \
     \; split-window -v -d nvim -c "NvimTreeToggle" \
@@ -12,7 +12,7 @@ FolderIdeCommand() {
     \; attach
 }
 FileIdeCommand() {
-  tmux new-session -d \
+  tmux new-session -d $(grep "^$USER" /etc/passwd | cut -d ":" -f 7) \
     \; resize-pane -R 75 \
     \; swap-pane -D \
     \; split-window -v -d nvim ${1} \
