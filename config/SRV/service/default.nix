@@ -2,7 +2,7 @@
 { ... }:
 {
   imports = [
-    (import ./src/nextcloud { hostname = hostname; })
+    (import ./src/nextcloud.nix { hostname = hostname; })
   ];
 
   services = {
