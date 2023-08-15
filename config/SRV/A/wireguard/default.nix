@@ -156,7 +156,7 @@
       };
 
       wg-failover = {
-        ips = ["109.122.220.13/32"]; 
+        ips = ["109.122.220.17/32"]; 
         privateKeyFile = "/etc/wireguard/failover/privateKey";
 
         peers = [
