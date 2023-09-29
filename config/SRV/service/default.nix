@@ -3,6 +3,7 @@
 {
   imports = [
     (import ./src/nextcloud.nix { hostname = hostname; })
+    (import ./src/mariadb.nix { hostname = hostname; })
   ];
 
   services = {

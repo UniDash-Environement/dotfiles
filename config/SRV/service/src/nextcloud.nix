@@ -51,8 +51,25 @@
     };
   };
 
+  services.mysql = {
+    initialDatabases = [
+    { name = "nextcloud"; }
+    ];
+    ensureDatabases = [
+      "nextcloud"
+    ];
+    ensureUsers = [
+    {
+      name = "nextcloud";
+      ensurePermissions = {
+        "netxcloud.*" = "ALL PRIVILEGES";
+      };
+    }
+    ];
+  };
+
   containers.nextcloud = {
-    autoStart = false; 
+    autoStart = true; 
     privateNetwork = true;           
     hostAddress = "10.110.255.254";
     localAddress = "10.110.0.1";
@@ -65,8 +82,20 @@
         hostName = "nextcloud.local";
         config = {
           adminuser = "Gabriel";
-          adminpassFile = "${pkgs.writeText "adminpass" "changeme"}";
+          adminpassFile = "/etc/nextcloud/adminpass";
+          dbtype = "mysql";
+          dbhost = "10.110.255.254";
+          dbpassFile = "/etc/nextcloud/dbpass";
+          dbuser = "nextcloud";
+          dbname = "nextcloud";
+          dbport = 3308;
         };
+      };
+
+      environment = {
+        systemPackages = with pkgs; [
+          mariadb
+        ];
       };
 
       system.stateVersion = "23.05";
