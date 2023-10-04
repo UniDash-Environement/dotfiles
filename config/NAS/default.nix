@@ -5,6 +5,15 @@
     (import ./service { hostname = hostname; })
   ];
 
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+        efiSupport = false
+      };
+    };
+  };
+
   users.users.gabriel = {
     isNormalUser = true;
     shell = pkgs.fish;
