@@ -9,7 +9,7 @@
     loader = {
       grub = {
         enable = true;
-        efiSupport = false
+        efiSupport = false;
       };
     };
   };
