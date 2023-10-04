@@ -83,5 +83,8 @@
     stateVersion = "23.05";
   };
 
-  boot.loader.grub.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+  };
 }

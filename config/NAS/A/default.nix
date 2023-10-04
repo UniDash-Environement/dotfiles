@@ -13,8 +13,5 @@
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
   };
   
-  boot.loader.grub = {
-    efiSupport = false;
-    devices = [ "/dev/sda1" ];
-  };
+  boot.loader.grub.efiSupport = false;
 }
