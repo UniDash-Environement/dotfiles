@@ -6,16 +6,6 @@
     ./virtualisation
   ];
 
-  boot = {
-    loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        efiSupport = true;
-      };
-    };
-  };
-
   users.users.gabriel = {
     isNormalUser = true;
     shell = pkgs.fish;

@@ -82,4 +82,6 @@
     copySystemConfiguration = false;
     stateVersion = "23.05";
   };
+
+  boot.loader.grub.enable = true;
 }
