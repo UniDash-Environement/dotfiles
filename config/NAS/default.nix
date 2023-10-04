@@ -10,6 +10,7 @@
       grub = {
         enable = true;
         efiSupport = false;
+        devices = [ "/dev/sda1" ];
       };
     };
   };
