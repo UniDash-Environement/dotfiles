@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   boot = {
     loader = {
@@ -29,5 +30,13 @@
   virtualisation = {
     docker.enable = true;
     libvirtd.enable = true;
-  }; 
+  };
+  
+  environment = {
+    shells = with pkgs; [ fish ];
+    systemPackages = with pkgs; [
+      virt-manager
+      pciutils
+    ];
+  };
 }

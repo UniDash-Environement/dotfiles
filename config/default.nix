@@ -4,7 +4,6 @@
   imports = [
     ./issue
     (import ./networking.nix { hostname = hostname; }) 
-    ./virtualisation
   ];
 
   nix = {
@@ -55,28 +54,6 @@
     fish.enable = true;
   };
   
-  users.users.gabriel = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [
-      "docker"
-      "networkmanager"
-      "libvirtd"
-      "wheel"
-    ];
-  };
-  
-  users.users.evnoxay = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [
-      "docker"
-      "networkmanager"
-      "libvirtd"
-      "wheel"
-    ];
-  };
-
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
@@ -92,12 +69,10 @@
       curl
       gdu
       unzip
-      virt-manager
       fish
       fishPlugins.bobthefish
       killall
       bc
-      pciutils
       wget
       (pkgs.callPackage ./ide { })
     ];
