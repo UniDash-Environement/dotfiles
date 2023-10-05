@@ -12,6 +12,4 @@
     defaultGateway = "45.88.180.254";
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
   };
-
-  boot.loader.grub.efiSupport = true;
 }
